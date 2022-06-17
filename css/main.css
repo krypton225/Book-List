@@ -20,6 +20,7 @@ html {
 body {
   width: 100vw;
   height: 100vh;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -98,4 +99,21 @@ ul {
   font-size: 13px;
   color: #fff;
   cursor: pointer;
+}
+
+.show-alert {
+  width: 20rem;
+  height: 4rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background-color: rgb(52, 92, 52);
+  color: #fff;
+  position: absolute;
+  bottom: 6%;
+  right: 5%;
+  font-size: 1.4rem;
+  transition: all 0.3s ease-in-out;
 }

@@ -35,9 +35,27 @@ class UI_Book {
     oneRow.innerHTML = `
             <td>${book.title}</td>
             <td>${book.author}</td>
-            <td><i class="fas fa-times"></i></td>`;
+            <td><i class="icon fas fa-times"></i></td>`;
 
     tBody.appendChild(oneRow);
+  }
+
+  static deleteBook(myBook) {
+    if (myBook.classList.contains("icon")) {
+      myBook.parentElement.parentElement.remove();
+    }
+  }
+
+  static showAlertMessage(msg, color) {
+    const myElement = document.createElement("div");
+    const myText = document.createTextNode(msg);
+
+    myElement.className = "show-alert";
+    myElement.style.backgroundColor = color;
+
+    myElement.appendChild(myText);
+
+    document.body.appendChild(myElement);
   }
 }
 
@@ -48,15 +66,33 @@ document.querySelector("#submitForm").addEventListener("click", (e) => {
   let myTitle = document.getElementById("bookListTitle");
   let myAuthor = document.getElementById("bookListAuthor");
 
-  const myBook = new Book(myTitle.value, myAuthor.value);
+  if (myTitle.value === "" || myAuthor.value === "") {
+    alert("Please, Enter all inputs!");
+  } else {
+    const myBook = new Book(myTitle.value, myAuthor.value);
 
-  UI_Book.addBookToTable(myBook);
+    UI_Book.addBookToTable(myBook);
 
-  myTitle.value = "";
-  myAuthor.value = "";
+    myTitle.value = "";
+    myAuthor.value = "";
 
-  myTitle.focus();
+    UI_Book.showAlertMessage("Your book was added!", "rgb(52, 92, 52)");
+
+    setTimeout(() => {
+      document.querySelector(".show-alert").remove();
+    }, 2500);
+
+    myTitle.focus();
+  }
 });
 
-// * Delete the item from the table and local storage.
+// * Draw the content into the table.
 document.addEventListener("DOMContentLoaded", UI_Book.displayBook);
+
+// * Delete the item from the table.
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("#table-body").addEventListener("click", (e) => {
+    UI_Book.showAlertMessage("Your book was deleted!", "rgb(170, 49, 70)");
+    UI_Book.deleteBook(e.target);
+  });
+});
