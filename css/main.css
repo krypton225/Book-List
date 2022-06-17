@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-font-size: 10px;
+  --right-left-color: #667db6;
+  --center-color: #0082c8;
+}
+
+html {
+  font-size: var(--main-font-size);
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  background: var(--center-color);
+  background: -webkit-linear-gradient(
+    to right,
+    var(--right-left-color),
+    var(--center-color),
+    var(--center-color),
+    var(--right-left-color)
+  );
+  background: linear-gradient(
+    to right,
+    var(--right-left-color),
+    var(--center-color),
+    var(--center-color),
+    var(--right-left-color)
+  );
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
