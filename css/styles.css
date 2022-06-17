@@ -1,0 +1,97 @@
+/* *
+    * *************
+    * #booklist
+    * *************
+* */
+
+.booklist {
+  /* width: 45rem; */
+  width: 60%;
+  /* height: calc(100vh - 13rem); */
+  height: 95vh;
+  padding: 20px;
+  /* border: 1px solid #000; */
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.4rem;
+  box-shadow: 2px 4px 14px 5px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .booklist {
+    width: 80%;
+  }
+}
+
+/* *
+    * *************
+    * #booklist__header
+    * *************
+* */
+
+.booklist__header {
+  margin-bottom: 3rem;
+}
+
+.booklist__header__title {
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+
+/* *
+    * *************
+    * #form
+    * *************
+* */
+
+.booklist__form {
+  width: 100%;
+}
+
+.booklist__form__content > * {
+  /* margin: auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.booklist__form__content label {
+  margin-block: 10px;
+  text-transform: capitalize;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+  color: #000;
+}
+
+.booklist__form__content input {
+  width: 100%;
+  padding-block: 7px;
+  padding-inline: 12px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+.booklist__form__btn {
+  width: 100%;
+  padding: 7px 12px;
+  margin-top: 20px;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  background-color: rgb(60, 129, 60);
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.booklist__form__btn:hover {
+  background-color: rgb(78, 134, 78);
+}

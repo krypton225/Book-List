@@ -28,6 +28,41 @@
 </head>
 
 <body>
+    <!-- * Start (booklist) section -->
+    <section id="booklist" class="booklist">
+
+        <!-- * Start (booklist__header) section -->
+        <header class="booklist__header">
+            <h1 class="booklist__header__title">
+                <i class="book-icon fas fa-book"></i> book list
+            </h1> <!-- ./booklist__header__title -->
+        </header> <!-- ./booklist__header -->
+        <!-- * End (booklist__header) section -->
+
+        <!-- * Start (booklist__form) form -->
+        <form class="booklist__form" id="myBooklistForm">
+
+            <!-- * Start (booklist form content) div -->
+            <div class="booklist__form__content">
+                <label for="bookListTitle">title</label>
+                <input type="text" name="title" id="bookListTitle" class="booklist__form__content__title">
+            </div> <!-- ./booklist__form__content -->
+            <!-- * End (booklist form content) div -->
+
+            <!-- * Start (booklist form content) div -->
+            <div class="booklist__form__content">
+                <label for="bookListAuthor">author</label>
+                <input type="text" name="author" id="bookListAuthor" class="booklist__form__content__author">
+            </div> <!-- ./booklist__form__content -->
+            <!-- * End (booklist form content) div -->
+
+            <input type="submit" value="add book" class="booklist__form__btn" id="submitForm">
+        </form> <!-- ./booklist__body -->
+        <!-- * End (booklist__form) form -->
+
+    </section> <!-- ./booklist -->
+    <!-- * End (booklist) section -->
+
     <!-- * This is my script js file to perform all operations -->
     <script src="js/script.js"></script>
 </body>
