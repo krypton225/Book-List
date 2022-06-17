@@ -8,6 +8,8 @@
   --main-font-size: 10px;
   --right-left-color: #667db6;
   --center-color: #0082c8;
+  --bg-theader: rgba(44, 75, 51, 0.842);
+  --border-table-color: rgba(44, 75, 51, 0.842);
 }
 
 html {
@@ -81,4 +83,19 @@ ul {
   .container {
     width: 1170px;
   }
+}
+
+.fa-times {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgb(170, 49, 70);
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
 }
