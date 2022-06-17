@@ -10,18 +10,7 @@ class Book {
 
 class UI_Book {
   static displayBook() {
-    const storedBooks = [
-      {
-        title: "First",
-        author: "Khaled",
-      },
-      {
-        title: "Second",
-        author: "Mohamed",
-      },
-    ];
-
-    const books = storedBooks;
+    const books = Storing.getBooks();
 
     books.forEach((book) => {
       UI_Book.addBookToTable(book);
@@ -59,6 +48,37 @@ class UI_Book {
   }
 }
 
+class Storing {
+  static getBooks() {
+    let books;
+    if (localStorage.getItem("books") === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem("books"));
+    }
+
+    return books;
+  }
+
+  static addToLocalStorage(book) {
+    const books = Storing.getBooks();
+    books.push(book);
+    localStorage.setItem("books", JSON.stringify(books));
+  }
+
+  static removeToLocalStorage(bookTitle) {
+    const books = Storing.getBooks();
+
+    books.forEach((bk, idx) => {
+      if (bk.title === bookTitle) {
+        books.splice(idx, 1);
+      }
+    });
+
+    localStorage.setItem("books", JSON.stringify(books));
+  }
+}
+
 // * Adding to table.
 document.querySelector("#submitForm").addEventListener("click", (e) => {
   e.preventDefault();
@@ -72,6 +92,8 @@ document.querySelector("#submitForm").addEventListener("click", (e) => {
     const myBook = new Book(myTitle.value, myAuthor.value);
 
     UI_Book.addBookToTable(myBook);
+
+    Storing.addToLocalStorage(myBook);
 
     myTitle.value = "";
     myAuthor.value = "";
@@ -93,6 +115,16 @@ document.addEventListener("DOMContentLoaded", UI_Book.displayBook);
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#table-body").addEventListener("click", (e) => {
     UI_Book.showAlertMessage("Your book was deleted!", "rgb(170, 49, 70)");
+
+    setTimeout(() => {
+      document.querySelector(".show-alert").remove();
+    }, 2500);
+
     UI_Book.deleteBook(e.target);
+
+    Storing.removeToLocalStorage(
+      e.target.parentElement.previousElementSibling.previousElementSibling
+        .textContent
+    );
   });
 });
